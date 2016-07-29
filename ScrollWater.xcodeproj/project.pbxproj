@@ -16,6 +16,8 @@
 		76444E761D35F46A00C83493 /* WaterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76444E751D35F46A00C83493 /* WaterScrollView.m */; };
 		76444E791D35F47B00C83493 /* WaterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76444E781D35F47B00C83493 /* WaterCell.m */; };
 		76444E7C1D35F49300C83493 /* WaterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76444E7B1D35F49300C83493 /* WaterModel.m */; };
+		76446F2C1D4AD9DC00FF9946 /* ModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76446F2B1D4AD9DC00FF9946 /* ModelManager.m */; };
+		76446F2F1D4AD9E900FF9946 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 76446F2E1D4AD9E900FF9946 /* UserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		76444E781D35F47B00C83493 /* WaterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterCell.m; sourceTree = "<group>"; };
 		76444E7A1D35F49300C83493 /* WaterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterModel.h; sourceTree = "<group>"; };
 		76444E7B1D35F49300C83493 /* WaterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterModel.m; sourceTree = "<group>"; };
+		76446F2A1D4AD9DC00FF9946 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
+		76446F2B1D4AD9DC00FF9946 /* ModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelManager.m; sourceTree = "<group>"; };
+		76446F2D1D4AD9E900FF9946 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		76446F2E1D4AD9E900FF9946 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +73,14 @@
 		76444E5B1D35F17A00C83493 /* ScrollWater */ = {
 			isa = PBXGroup;
 			children = (
+				76446F291D4AD9CE00FF9946 /* ArchiveManager */,
 				76444E731D35F33400C83493 /* WaterFlow */,
 				76444E5F1D35F17A00C83493 /* AppDelegate.h */,
 				76444E601D35F17A00C83493 /* AppDelegate.m */,
 				76444E621D35F17A00C83493 /* ViewController.h */,
 				76444E631D35F17A00C83493 /* ViewController.m */,
+				76446F2D1D4AD9E900FF9946 /* UserInfo.h */,
+				76446F2E1D4AD9E900FF9946 /* UserInfo.m */,
 				76444E651D35F17A00C83493 /* Main.storyboard */,
 				76444E681D35F17A00C83493 /* Assets.xcassets */,
 				76444E6A1D35F17A00C83493 /* LaunchScreen.storyboard */,
@@ -100,6 +109,15 @@
 				76444E7B1D35F49300C83493 /* WaterModel.m */,
 			);
 			name = WaterFlow;
+			sourceTree = "<group>";
+		};
+		76446F291D4AD9CE00FF9946 /* ArchiveManager */ = {
+			isa = PBXGroup;
+			children = (
+				76446F2A1D4AD9DC00FF9946 /* ModelManager.h */,
+				76446F2B1D4AD9DC00FF9946 /* ModelManager.m */,
+			);
+			name = ArchiveManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +190,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76446F2F1D4AD9E900FF9946 /* UserInfo.m in Sources */,
+				76446F2C1D4AD9DC00FF9946 /* ModelManager.m in Sources */,
 				76444E791D35F47B00C83493 /* WaterCell.m in Sources */,
 				76444E7C1D35F49300C83493 /* WaterModel.m in Sources */,
 				76444E641D35F17A00C83493 /* ViewController.m in Sources */,
@@ -326,6 +346,7 @@
 				76444E721D35F17A00C83493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

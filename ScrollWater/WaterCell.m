@@ -43,8 +43,10 @@
 }
 
 -(void)refreshWithOrigin:(CGPoint)origin{
-    self.frame = CGRectMake(origin.x, origin.y, model.cellWidth, model.cellHeight);
-    [self refresh];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.frame = CGRectMake(origin.x, origin.y, model.cellWidth, model.cellHeight);
+        [self refresh];
+    }];
 }
 
 -(void)refresWhenModelChanged{

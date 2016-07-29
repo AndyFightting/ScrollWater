@@ -63,6 +63,11 @@
         cell.delegate = self;
         [self addSubview:cell];
         
+        cell.transform = CGAffineTransformMakeScale(0.01,0.01);
+        [UIView animateWithDuration:0.3 animations:^{
+            cell.transform = CGAffineTransformMakeScale(1,1);
+        }];
+        
         [cellArray addObject:cell];
         heightArray[cellColumn] = @(originY + model.cellHeight + cellSpacing);
     }

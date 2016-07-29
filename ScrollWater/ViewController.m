@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "WaterScrollView.h"
+#import "ModelManager.h"
+#import "UserInfo.h"
 
 @interface ViewController ()<WaterScrollDelegate>
 
@@ -25,7 +27,7 @@
     
     modelArray = [[NSMutableArray alloc]init];
     
-    for (int i=0; i<30; i++) {
+    for (int i=0; i<6; i++) {
         WaterModel* md = [WaterModel modelWithDic:@{@"tmpIndex":@(i)}];
         [modelArray addObject:md];
     }
@@ -35,28 +37,60 @@
     [self.view addSubview:scroll];
     [scroll refreshWithModels:modelArray];
     
-    [self performSelector:@selector(test) withObject:nil afterDelay:3];
+    [self performSelector:@selector(addModel) withObject:nil afterDelay:4];
+    [self performSelector:@selector(changeColumnNum) withObject:nil afterDelay:8];
+    [self managerTest];
     
 }
 
--(void)test{
-//    NSMutableArray* moreArray = [[NSMutableArray alloc]init];
-//    for (long i=modelArray.count; i<modelArray.count+15; i++) {
-//        WaterModel* md = [WaterModel modelWithDic:@{@"tmpIndex":@(i)}];
-//        [moreArray addObject:md];
-//    }
-//    
-//    [scroll loadMoreWithModels:moreArray];
+-(void)addModel{
+//    添加model
+    NSMutableArray* moreArray = [[NSMutableArray alloc]init];
+    for (long i=modelArray.count; i<modelArray.count+10; i++) {
+        WaterModel* md = [WaterModel modelWithDic:@{@"tmpIndex":@(i)}];
+        [moreArray addObject:md];
+    }
     
-    [scroll refreshWithColumnChange:5];
+    [scroll loadMoreWithModels:moreArray];
+}
 
+-(void)changeColumnNum{
+    [scroll refreshWithColumnChange:5];
 }
 
 #pragma mark - water scroll delegate
 -(void)scrollCellTap:(WaterCell*)cell{
     cell.model.tmpIndex = 6666;
     [cell refresWhenModelChanged];
+}
+
+
+-(void)managerTest{
     
+    //model
+    UserInfo* info = [[UserInfo alloc]init];
+    info.userId = 18;
+    info.userName = @"guimingsu";
+    [ModelManager saveModel:info]; //保存model
+    
+    UserInfo* md = [ModelManager getModel:[UserInfo class]];
+    NSLog(@"userId= %ld -- userName= %@",md.userId,md.userName);
+
+
+    //model array
+    NSMutableArray* mdArray = [[NSMutableArray alloc]init];
+    for (int i=0; i<10; i++) {
+        UserInfo* info = [[UserInfo alloc]init];
+        info.userId = i;
+        info.userName = [NSString stringWithFormat:@"guimingsu ---array %d",i];
+        [mdArray addObject:info];
+    }
+    [ModelManager saveModelArray:mdArray forClass:[UserInfo class]];
+    NSArray* getMdArray = [ModelManager getModelArray:[UserInfo class]];
+    
+    for (UserInfo* u in getMdArray) {
+        NSLog(@"userId= %ld -- userName= %@",u.userId,u.userName);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
